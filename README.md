@@ -1,3 +1,5 @@
+## NOTE: This is a modified version which skips verification of certificates. DO NOT USE THIS. The reason this exists is because I built an app on the Kobo, and I have to disable the verification in order to make web requests from it.
+
 <h1 align="center">
   <br />
   <img src="https://user-images.githubusercontent.com/168240/41822669-34e92094-77a8-11e8-831e-67d38e686c21.png" alt="go-coinmarketcap" width="600" />
