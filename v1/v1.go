@@ -66,7 +66,13 @@ func Tickers(limit int, convert string) (map[string]*types.Ticker, error) {
 
 // doReq HTTP client
 func doReq(req *http.Request) ([]byte, error) {
-	client := &http.Client{}
+	// Skip certificate verification to be able to make web requests on
+	// the Kobo e-reader.
+	// DO NOT DO THIS ANYWHERE ELSE!
+	transport := &http.Transport{
+		TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+	}
+	client := &http.Client{Transport: transport}
 	resp, err := client.Do(req)
 	if err != nil {
 		return nil, err
